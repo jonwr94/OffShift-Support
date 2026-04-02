@@ -1,1 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OffShift — Support & Legal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f6f6f4;
+      --text-primary: #1a1a18;
+      --text-secondary: #5a5a57;
+      --text-tertiary: #9a9a96;
+      --border: rgba(0,0,0,0.10);
+      --border-strong: rgba(0,0,0,0.18);
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1c1c1a;
+        --bg-secondary: #252523;
+        --text-primary: #f0f0ec;
+        --text-secondary: #a0a09c;
+        --text-tertiary: #606060;
+        --border: rgba(255,255,255,0.10);
+        --border-strong: rgba(255,255,255,0.18);
+      }
+    }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem;
+    }
+
+    .page { max-width: 480px; width: 100%; }
+
+    /* Brand */
+    .brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .logo {
+      width: 64px; height: 64px; border-radius: 16px;
+      background: #1a1a2e;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 26px; font-weight: 500; letter-spacing: -0.5px;
+      color: var(--text-primary); margin-bottom: 6px;
+    }
+
+    .tagline { font-size: 14px; color: var(--text-secondary); }
+
+    /* Nav cards */
+    .nav-cards { display: flex; flex-direction: column; gap: 10px; margin-bottom: 2.5rem; }
+
+    .nav-card {
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--bg); border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1rem 1.25rem;
+      text-decoration: none; color: inherit;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .nav-card:hover {
+      background: var(--bg-secondary);
+      border-color: var(--border-strong);
+    }
+
+    .nav-card-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+
+    .nav-card-content { flex: 1; }
+
+    .nav-card-title {
+      font-size: 15px; font-weight: 500; color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .nav-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
+
+    .nav-card-arrow {
+      font-size: 16px; color: var(--text-tertiary); flex-shrink: 0;
+    }
+
+    /* Contact row */
+    .contact-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 6px; font-size: 13px; color: var(--text-secondary);
+    }
+
+    .contact-row a {
+      color: #185FA5; text-decoration: none; font-weight: 500;
+    }
+
+    .contact-row a:hover { text-decoration: underline; }
+
+    .dot { color: var(--text-tertiary); }
+
+    .footer {
+      font-size: 12px; color: var(--text-tertiary);
+      text-align: center; margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="brand">
+      <div class="logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="11" stroke="#6CB4F0" stroke-width="2"/>
+          <path d="M16 10v6l4 4" stroke="#6CB4F0" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h1>OffShift</h1>
+      <p class="tagline">Shift work scheduling & sleep tracking for iOS</p>
+    </div>
+
+    <div class="nav-cards">
+
+      <a href="https://jonwr94.github.io/OffShift-Support/support.html" class="nav-card">
+        <div class="nav-card-icon" style="background:#eeedfe">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="7" stroke="#534AB7" stroke-width="1.5"/>
+            <path d="M10 9.5V14M10 7v.5" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="nav-card-content">
+          <p class="nav-card-title">Support</p>
+          <p class="nav-card-desc">Getting started, troubleshooting, and OffShift Pro</p>
+        </div>
+        <span class="nav-card-arrow">›</span>
+      </a>
+
+      <a href="https://jonwr94.github.io/OffShift-Support/privacy.html" class="nav-card">
+        <div class="nav-card-icon" style="background:#e1f5ee">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 2L4 5.5v5c0 3.5 2.5 6.5 6 7.4 3.5-.9 6-3.9 6-7.4v-5L10 2z" stroke="#0F6E56" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M7.5 10.5l2 2 3-3" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="nav-card-content">
+          <p class="nav-card-title">Privacy Policy</p>
+          <p class="nav-card-desc">How OffShift handles your data — spoiler: it stays on your device</p>
+        </div>
+        <span class="nav-card-arrow">›</span>
+      </a>
+
+    </div>
+
+    <div class="contact-row">
+      <span>Questions?</span>
+      <a href="mailto:offshiftapp@gmail.com">offshiftapp@gmail.com</a>
+    </div>
+
+    <p class="footer">© 2025 OffShift · All rights reserved</p>
+
+  </div>
+</body>
+</html>
