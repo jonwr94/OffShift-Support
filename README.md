@@ -2,5 +2,5 @@
 
 Welcome! Choose a page below:
 
-- [Privacy Policy](privacy.md)
+- [Privacy Policy](privacy.html)
 - [Support Page](support.md)
