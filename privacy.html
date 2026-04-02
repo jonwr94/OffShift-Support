@@ -1,1 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — OffShift</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f6f6f4;
+      --text-primary: #1a1a18;
+      --text-secondary: #5a5a57;
+      --text-tertiary: #9a9a96;
+      --border: rgba(0,0,0,0.10);
+      --border-strong: rgba(0,0,0,0.18);
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1c1c1a;
+        --bg-secondary: #252523;
+        --text-primary: #f0f0ec;
+        --text-secondary: #a0a09c;
+        --text-tertiary: #606060;
+        --border: rgba(255,255,255,0.10);
+        --border-strong: rgba(255,255,255,0.18);
+      }
+    }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    .page {
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    /* Brand bar */
+    .brand-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 2.5rem;
+    }
+
+    .logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #1a1a2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .app-name {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 20px;
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      border: 0.5px solid var(--border);
+      margin-left: 4px;
+    }
+
+    /* Heading */
+    h1 {
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+    }
+
+    /* Hero card */
+    .hero {
+      background: var(--bg-secondary);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.25rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .hero-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #e8f4fd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .hero-body {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 1.75rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .section-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* Items */
+    .item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 8px 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .item:last-child { border-bottom: none; }
+
+    .item-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--border-strong);
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    .item-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .item-text strong {
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* No-third-party pills */
+    .none-intro {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .none-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 8px;
+    }
+
+    .none-pill {
+      font-size: 13px;
+      padding: 8px 12px;
+      border-radius: var(--radius-md);
+      background: var(--bg-secondary);
+      border: 0.5px solid var(--border);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .none-pill::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--border-strong);
+      flex-shrink: 0;
+    }
+
+    /* Plain body text for simple sections */
+    .section-body {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* Divider */
+    .divider {
+      height: 0.5px;
+      background: var(--border);
+      margin: 1.75rem 0;
+    }
+
+    /* Contact card */
+    .contact-card {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-label-text {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .contact-label {
+      color: var(--text-secondary);
+      min-width: 56px;
+    }
+
+    .contact-value {
+      color: #185FA5;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .contact-value:hover { text-decoration: underline; }
+
+    /* Footer */
+    .footer {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      text-align: center;
+      padding-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Brand bar -->
+    <div class="brand-bar">
+      <div class="logo">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="7" stroke="#6CB4F0" stroke-width="1.5"/>
+          <path d="M10 6v4l2.5 2.5" stroke="#6CB4F0" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="app-name">OffShift</span>
+      <span class="badge">Privacy Policy</span>
+    </div>
+
+    <!-- Heading -->
+    <h1>Your data stays yours.</h1>
+    <p class="meta">Last updated: December 18, 2025</p>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M10 2L4 5v5c0 3.5 2.5 6.8 6 7.7 3.5-.9 6-4.2 6-7.7V5L10 2z" stroke="#3B82F6" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M7.5 10l2 2 3-3" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <p class="hero-title">Privacy by design</p>
+        <p class="hero-body">OffShift does not upload, transmit, or store any personal data on external servers. All data processing occurs locally on your device, and we never collect, sell, share, or transmit your data to any third parties.</p>
+      </div>
+    </div>
+
+    <!-- Data we collect -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#eaf3de">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <rect x="2" y="3" width="10" height="8" rx="1.5" stroke="#3B6D11" stroke-width="1.2"/>
+            <path d="M5 7h4M7 5v4" stroke="#3B6D11" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="section-title">Data we collect</span>
+      </div>
+      <div class="item"><div class="item-dot"></div><p class="item-text"><strong>Work shifts</strong> you enter manually in the app</p></div>
+      <div class="item"><div class="item-dot"></div><p class="item-text"><strong>Sleep sessions</strong> you log</p></div>
+      <div class="item"><div class="item-dot"></div><p class="item-text"><strong>App preferences and settings</strong></p></div>
+      <div class="item"><div class="item-dot"></div><p class="item-text">All of the above are stored <strong>locally on your device only</strong> — never on a remote server</p></div>
+    </div>
+
+    <!-- Apple Health -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#fef3e2">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M7 2a4 4 0 100 8A4 4 0 007 2z" stroke="#854F0B" stroke-width="1.2"/>
+            <path d="M7 5v2.5l1.5 1.5" stroke="#854F0B" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="section-title">Apple Health integration</span>
+      </div>
+      <div class="item"><div class="item-dot"></div><p class="item-text">Sleep data is read <strong>only with your explicit permission</strong></p></div>
+      <div class="item"><div class="item-dot"></div><p class="item-text">Used solely to display and analyze sleep info inside the app</p></div>
+      <div class="item"><div class="item-dot"></div><p class="item-text">Health data <strong>stays on-device</strong> and is never uploaded, transmitted, or shared</p></div>
+      <div class="item"><div class="item-dot"></div><p class="item-text">You can revoke access anytime in the <strong>Apple Health app</strong></p></div>
+      <div class="item"><div class="item-dot"></div><p class="item-text">OffShift <strong>does not write</strong> any data back to Apple Health</p></div>
+    </div>
+
+    <!-- Data storage -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#eeedfe">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <rect x="2" y="2" width="10" height="10" rx="2" stroke="#534AB7" stroke-width="1.2"/>
+            <path d="M5 7h4" stroke="#534AB7" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="section-title">Data storage &amp; processing</span>
+      </div>
+      <div class="item"><div class="item-dot"></div><p class="item-text">All user data is processed locally using Apple system frameworks including <strong>SwiftData</strong> and <strong>UserDefaults</strong></p></div>
+      <div class="item"><div class="item-dot"></div><p class="item-text">Widgets access limited summary data via Apple's <strong>App Group system</strong> for on-device display only</p></div>
+      <div class="item"><div class="item-dot"></div><p class="item-text">OffShift does not operate backend servers and <strong>never transmits data off your device</strong></p></div>
+    </div>
+
+    <!-- Third-party -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#fbeaf0">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <circle cx="7" cy="7" r="4.5" stroke="#993556" stroke-width="1.2"/>
+            <path d="M7 5v2.2l1.4 1.4" stroke="#993556" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="section-title">Third-party services</span>
+      </div>
+      <p class="none-intro">OffShift uses none of the following — and no third-party services ever receive your data:</p>
+      <div class="none-grid">
+        <div class="none-pill">Analytics services</div>
+        <div class="none-pill">Advertising networks</div>
+        <div class="none-pill">Tracking SDKs</div>
+        <div class="none-pill">External APIs</div>
+      </div>
+    </div>
+
+    <!-- Subscriptions -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#e1f5ee">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <rect x="2" y="5" width="10" height="7" rx="1.5" stroke="#0F6E56" stroke-width="1.2"/>
+            <path d="M5 5V4a2 2 0 114 0v1" stroke="#0F6E56" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="section-title">Subscriptions &amp; payments</span>
+      </div>
+      <div class="item"><div class="item-dot"></div><p class="item-text">Payments are handled securely by <strong>Apple via the App Store</strong></p></div>
+      <div class="item"><div class="item-dot"></div><p class="item-text">OffShift does not receive, process, or store any <strong>payment or billing information</strong></p></div>
+    </div>
+
+    <!-- Children -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#f1efe8">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <circle cx="7" cy="5" r="2.5" stroke="#5F5E5A" stroke-width="1.2"/>
+            <path d="M3 12c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="#5F5E5A" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="section-title">Children's privacy</span>
+      </div>
+      <div class="item"><div class="item-dot"></div><p class="item-text">OffShift does not knowingly collect data from children</p></div>
+      <div class="item"><div class="item-dot"></div><p class="item-text">The app contains no content unsuitable for minors</p></div>
+    </div>
+
+    <!-- Policy changes -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#e6f1fb">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M7 2v4l2.5 2.5" stroke="#185FA5" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx="7" cy="7" r="5" stroke="#185FA5" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <span class="section-title">Policy changes</span>
+      </div>
+      <p class="section-body">If privacy practices change, this policy will be updated and the effective date revised. Check back here for the most current version.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Contact -->
+    <div class="section">
+      <p class="contact-label-text">Questions? Get in touch.</p>
+      <div class="contact-card">
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <a href="mailto:jonwr.94@gmail.com" class="contact-value">jonwr.94@gmail.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Website</span>
+          <a href="https://jonwr94.github.io/OffShift-Support/" class="contact-value">jonwr94.github.io/OffShift-Support</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="footer">© 2025 OffShift · All rights reserved</p>
+
+  </div>
+</body>
+</html>
