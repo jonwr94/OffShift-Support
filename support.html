@@ -1,1 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — OffShift</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f6f6f4;
+      --text-primary: #1a1a18;
+      --text-secondary: #5a5a57;
+      --text-tertiary: #9a9a96;
+      --border: rgba(0,0,0,0.10);
+      --border-strong: rgba(0,0,0,0.18);
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1c1c1a;
+        --bg-secondary: #252523;
+        --text-primary: #f0f0ec;
+        --text-secondary: #a0a09c;
+        --text-tertiary: #606060;
+        --border: rgba(255,255,255,0.10);
+        --border-strong: rgba(255,255,255,0.18);
+      }
+    }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    .page { max-width: 660px; margin: 0 auto; }
+
+    /* Brand bar */
+    .brand-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 2.5rem; }
+
+    .logo {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: #1a1a2e; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+
+    .app-name { font-size: 16px; font-weight: 500; color: var(--text-primary); }
+
+    .badge {
+      font-size: 11px; padding: 3px 8px; border-radius: 20px;
+      background: var(--bg-secondary); color: var(--text-secondary);
+      border: 0.5px solid var(--border); margin-left: 4px;
+    }
+
+    h1 { font-size: 28px; font-weight: 500; letter-spacing: -0.5px; color: var(--text-primary); margin-bottom: 4px; }
+    .meta { font-size: 13px; color: var(--text-secondary); margin-bottom: 2.5rem; }
+
+    /* Hero */
+    .hero {
+      background: var(--bg-secondary); border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 2.25rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .hero-icon {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 10px;
+      background: #e8f4fd; display: flex; align-items: center; justify-content: center;
+    }
+    .hero-title { font-size: 15px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+    .hero-body { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+
+    /* Section */
+    .section { margin-bottom: 1.75rem; }
+
+    .section-header {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 0.5px solid var(--border);
+    }
+
+    .section-icon {
+      width: 28px; height: 28px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+
+    .section-title { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+
+    /* Items */
+    .item {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 8px 0; border-bottom: 0.5px solid var(--border);
+    }
+    .item:last-child { border-bottom: none; }
+    .item-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--border-strong); margin-top: 8px; flex-shrink: 0;
+    }
+    .item-text { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+    .item-text strong { font-weight: 500; color: var(--text-primary); }
+
+    /* Step items (numbered) */
+    .step {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 10px 0; border-bottom: 0.5px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      width: 22px; height: 22px; border-radius: 50%; border: 0.5px solid var(--border-strong);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 500; color: var(--text-secondary);
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .step-content { flex: 1; }
+    .step-title { font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 2px; }
+    .step-body { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+
+    /* Troubleshoot accordion-style cards */
+    .trouble-card {
+      background: var(--bg-secondary); border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1rem 1.25rem; margin-bottom: 10px;
+    }
+    .trouble-q {
+      font-size: 14px; font-weight: 500; color: var(--text-primary);
+      margin-bottom: 8px; display: flex; align-items: center; gap: 8px;
+    }
+    .trouble-q-icon {
+      width: 20px; height: 20px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .trouble-item {
+      display: flex; gap: 8px; align-items: flex-start;
+      font-size: 13px; color: var(--text-secondary); line-height: 1.55;
+      padding: 4px 0;
+    }
+    .trouble-item::before {
+      content: ''; width: 4px; height: 4px; border-radius: 50%;
+      background: var(--border-strong); flex-shrink: 0; margin-top: 7px;
+    }
+
+    /* Pro features grid */
+    .pro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; margin-bottom: 12px; }
+    .pro-pill {
+      font-size: 13px; padding: 8px 12px; border-radius: var(--radius-md);
+      background: var(--bg-secondary); border: 0.5px solid var(--border);
+      color: var(--text-secondary); display: flex; align-items: center; gap: 7px;
+    }
+    .pro-pill::before {
+      content: ''; width: 5px; height: 5px; border-radius: 50%;
+      background: #185FA5; flex-shrink: 0;
+    }
+
+    /* Code path */
+    .path {
+      font-family: 'DM Mono', 'SF Mono', monospace; font-size: 12px;
+      background: var(--bg-secondary); border: 0.5px solid var(--border);
+      border-radius: 6px; padding: 2px 7px; color: var(--text-secondary);
+      display: inline-block;
+    }
+
+    /* Contact card */
+    .contact-card {
+      background: var(--bg); border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1rem 1.25rem;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .contact-row { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; }
+    .contact-label { color: var(--text-secondary); min-width: 80px; flex-shrink: 0; padding-top: 1px; }
+    .contact-value { color: #185FA5; text-decoration: none; word-break: break-all; }
+    .contact-value:hover { text-decoration: underline; }
+    .contact-note { color: var(--text-secondary); line-height: 1.5; }
+
+    /* Email tips */
+    .email-tips {
+      background: var(--bg-secondary); border: 0.5px solid var(--border);
+      border-radius: var(--radius-md); padding: 0.75rem 1rem; margin-top: 10px;
+    }
+    .email-tips-label { font-size: 12px; font-weight: 500; color: var(--text-secondary); margin-bottom: 6px; }
+    .email-tip {
+      display: flex; gap: 8px; align-items: flex-start;
+      font-size: 12px; color: var(--text-secondary); padding: 2px 0; line-height: 1.5;
+    }
+    .email-tip::before {
+      content: ''; width: 4px; height: 4px; border-radius: 50%;
+      background: var(--border-strong); flex-shrink: 0; margin-top: 6px;
+    }
+
+    /* Privacy link */
+    .privacy-link-row {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--bg-secondary); border: 0.5px solid var(--border);
+      border-radius: var(--radius-md); padding: 10px 14px; font-size: 14px;
+    }
+    .privacy-link-row a { color: #185FA5; text-decoration: none; font-weight: 500; }
+    .privacy-link-row a:hover { text-decoration: underline; }
+    .privacy-link-label { color: var(--text-secondary); font-size: 13px; }
+
+    /* Feature request */
+    .feature-card {
+      background: var(--bg-secondary); border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1.25rem 1.5rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .feature-icon {
+      flex-shrink: 0; width: 36px; height: 36px; border-radius: 9px;
+      background: #eaf3de; display: flex; align-items: center; justify-content: center;
+    }
+    .feature-title { font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 3px; }
+    .feature-body { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+
+    .divider { height: 0.5px; background: var(--border); margin: 1.75rem 0; }
+
+    .footer { font-size: 12px; color: var(--text-tertiary); text-align: center; padding-top: 0.5rem; }
+    .contact-label-text { font-size: 13px; color: var(--text-secondary); margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Brand bar -->
+    <div class="brand-bar">
+      <div class="logo">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="10" r="7" stroke="#6CB4F0" stroke-width="1.5"/>
+          <path d="M10 6v4l2.5 2.5" stroke="#6CB4F0" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="app-name">OffShift</span>
+      <span class="badge">Support</span>
+    </div>
+
+    <h1>We're here to help.</h1>
+    <p class="meta">Last updated: December 14, 2025</p>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="10" r="7" stroke="#3B82F6" stroke-width="1.5"/>
+          <path d="M10 9.5V14M10 7v.5" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <p class="hero-title">Quick answers below</p>
+        <p class="hero-body">Find help for common questions about getting started, Apple Health, OffShift Pro, and troubleshooting. If you're still stuck, email support is always available.</p>
+      </div>
+    </div>
+
+    <!-- Getting Started -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#eeedfe">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <circle cx="7" cy="7" r="5" stroke="#534AB7" stroke-width="1.2"/>
+            <path d="M5 7h4M7 5v4" stroke="#534AB7" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="section-title">Getting started</span>
+      </div>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <p class="step-title">Add your shifts</p>
+          <p class="step-body">Tap the <strong>+</strong> button in the Schedule tab to add a shift. Bulk add and rotation templates are available for faster setup.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <p class="step-title">Log sleep</p>
+          <p class="step-body">Log sleep manually in the Sleep tab, or sync from Apple Health if you have OffShift Pro.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <p class="step-title">Add widgets</p>
+          <p class="step-body">Add OffShift widgets from your Home Screen or Lock Screen. Widgets update automatically as your schedule or sleep data changes.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Apple Health -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#fbeaf0">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M7 11.5S2.5 8.5 2.5 5.5a2.5 2.5 0 015-0c0 0 0 0 0 0a2.5 2.5 0 015 0c0 3-4.5 6-4.5 6z" stroke="#993556" stroke-width="1.2" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="section-title">Apple Health integration</span>
+      </div>
+      <div class="item"><div class="item-dot"></div><p class="item-text">OffShift reads <strong>sleep data only</strong> — no other Health data is accessed</p></div>
+      <div class="item"><div class="item-dot"></div>
+        <p class="item-text">Manage access anytime at <span class="path">Health → Profile → Apps → OffShift</span></p>
+      </div>
+      <div class="item"><div class="item-dot"></div><p class="item-text">If sleep doesn't appear after syncing, confirm OffShift has <strong>Read</strong> permission for Sleep Analysis, then reopen the app and try again</p></div>
+      <div class="item"><div class="item-dot"></div><p class="item-text">OffShift <strong>does not write</strong> any data back to Apple Health</p></div>
+    </div>
+
+    <!-- OffShift Pro -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#e6f1fb">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M7 2l1.5 3 3.5.5-2.5 2.5.5 3.5L7 10 4 11.5l.5-3.5L2 5.5 5.5 5 7 2z" stroke="#185FA5" stroke-width="1.2" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="section-title">OffShift Pro</span>
+      </div>
+      <div class="pro-grid">
+        <div class="pro-pill">Apple Health sync</div>
+        <div class="pro-pill">Advanced widgets</div>
+        <div class="pro-pill">Additional insights</div>
+      </div>
+      <div class="item">
+        <div class="item-dot"></div>
+        <p class="item-text">Subscriptions are managed through your Apple ID at <span class="path">Settings → Apple ID → Subscriptions</span></p>
+      </div>
+      <div class="item">
+        <div class="item-dot"></div>
+        <p class="item-text">OffShift does not handle billing — all purchases go through the App Store</p>
+      </div>
+    </div>
+
+    <!-- Troubleshooting -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#fef3e2">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M7 2a5 5 0 100 10A5 5 0 007 2z" stroke="#854F0B" stroke-width="1.2"/>
+            <path d="M7 5.5v3M7 10v.5" stroke="#854F0B" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="section-title">Troubleshooting</span>
+      </div>
+
+      <div class="trouble-card">
+        <div class="trouble-q">
+          <div class="trouble-q-icon" style="background:#eeedfe">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <rect x="1" y="3" width="8" height="6" rx="1" stroke="#534AB7" stroke-width="1"/>
+              <path d="M3 3V2.5a2 2 0 014 0V3" stroke="#534AB7" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+          </div>
+          Widgets not updating
+        </div>
+        <div class="trouble-item">Open OffShift at least once to refresh widget data</div>
+        <div class="trouble-item">Make sure <strong>Background App Refresh</strong> is enabled for OffShift in Settings</div>
+        <div class="trouble-item">Widgets may take a few minutes to reflect changes</div>
+      </div>
+
+      <div class="trouble-card">
+        <div class="trouble-q">
+          <div class="trouble-q-icon" style="background:#fbeaf0">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <path d="M5 8.5S1.5 6 1.5 4a2 2 0 014 0 2 2 0 014 0C9.5 6 5 8.5 5 8.5z" stroke="#993556" stroke-width="1" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          Sleep data looks wrong
+        </div>
+        <div class="trouble-item">Sleep sessions crossing midnight may appear grouped differently — this is expected for shift work</div>
+        <div class="trouble-item">Nap sessions are tracked separately and may show as distinct entries</div>
+      </div>
+
+      <div class="trouble-card">
+        <div class="trouble-q">
+          <div class="trouble-q-icon" style="background:#eaf3de">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <rect x="1" y="2" width="8" height="6" rx="1" stroke="#3B6D11" stroke-width="1"/>
+              <path d="M3 5h4M5 3v4" stroke="#3B6D11" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+          </div>
+          Duplicate shifts appearing
+        </div>
+        <div class="trouble-item">OffShift automatically detects possible duplicates</div>
+        <div class="trouble-item">Check the Schedule view — recommendations to remove duplicates will appear there</div>
+      </div>
+    </div>
+
+    <!-- Privacy -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#e1f5ee">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M7 1.5L2.5 3.5v4c0 2.8 2 5.4 4.5 6.1 2.5-.7 4.5-3.3 4.5-6.1v-4L7 1.5z" stroke="#0F6E56" stroke-width="1.2" stroke-linejoin="round"/>
+            <path d="M5 7l1.5 1.5 2.5-2.5" stroke="#0F6E56" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="section-title">Privacy</span>
+      </div>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:1.65;margin-bottom:12px;">OffShift does not collect, track, or sell your data. All information stays on your device.</p>
+      <div class="privacy-link-row">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0">
+          <path d="M7 1.5L2.5 3.5v4c0 2.8 2 5.4 4.5 6.1 2.5-.7 4.5-3.3 4.5-6.1v-4L7 1.5z" stroke="#185FA5" stroke-width="1.2" stroke-linejoin="round"/>
+        </svg>
+        <span class="privacy-link-label">Read the full</span>
+        <a href="https://jonwr94.github.io/OffShift-Support/privacy.html">Privacy Policy →</a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Contact -->
+    <div class="section">
+      <p class="contact-label-text">Need more help? Send an email.</p>
+      <div class="contact-card">
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <a href="mailto:offshiftapp@gmail.com" class="contact-value">jonwr.94@gmail.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Response</span>
+          <span class="contact-note">Typically within 1–2 days</span>
+        </div>
+      </div>
+      <div class="email-tips">
+        <p class="email-tips-label">To help resolve your issue faster, include:</p>
+        <div class="email-tip">Your device model (e.g. iPhone 15 Pro)</div>
+        <div class="email-tip">Your iOS version</div>
+        <div class="email-tip">What you expected to happen vs. what actually happened</div>
+      </div>
+    </div>
+
+    <!-- Feature requests -->
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M9 2l1.8 3.6L15 6.3l-3 2.9.7 4.1L9 11.2l-3.7 1.9.7-4.1L3 6.3l4.2-.7L9 2z" stroke="#3B6D11" stroke-width="1.3" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <p class="feature-title">Got a feature idea?</p>
+        <p class="feature-body">OffShift is actively improving. If something would make your shift work easier, send it along — feature requests are always welcome at <a href="mailto:offshiftapp@gmail.com" style="color:#185FA5;text-decoration:none;font-weight:500">jonwr.94@gmail.com</a>.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="footer">© 2025 OffShift · All rights reserved</p>
+
+  </div>
+</body>
+</html>
